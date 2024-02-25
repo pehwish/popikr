@@ -1,11 +1,22 @@
+@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css");
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 :root {
-  --foreground-rgb: 0, 0, 0;
+  --foreground-rgb: 29, 29, 29;
   --background-start-rgb: 214, 219, 220;
   --background-end-rgb: 255, 255, 255;
+  --food: #fb2100;
+  --movie: #5d2719;
+  --character: #ffec3e;
+  --fashion: #00c3a2;
+  --music: #ff69b1;
+  --living: #009bdc;
+  --g1: #888;
+  --g2: #eaeaea;
+  --etc: #000;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -16,14 +27,303 @@
   }
 }
 
+html {
+  -webkit-font-smoothing: antialiased;
+  font-size: 16px;
+}
+
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  color: var(--foreground-rgb);
+  font-family:
+    "Pretendard Variable",
+    Pretendard,
+    -apple-system,
+    BlinkMacSystemFont,
+    system-ui,
+    Roboto,
+    "Helvetica Neue",
+    "Segoe UI",
+    "Apple SD Gothic Neo",
+    "Noto Sans KR",
+    "Malgun Gothic",
+    "Apple Color Emoji",
+    "Segoe UI Emoji",
+    "Segoe UI Symbol",
+    sans-serif;
+}
+
+#header {
+  height: 60px;
+  margin: 0 14px 0 23px;
+}
+.header__logo {
+  height: 27px;
+  text-indent: -9999px;
+  width: 81px;
+  background: url("/icon/logo.svg") center / contain no-repeat;
+}
+
+.header__back {
+  background: url("/icon/ico_arrow.svg") center / contain no-repeat;
+  display: inline-block;
+  height: 28px;
+  margin-right: 10px;
+  width: 28px;
+}
+
+.header-actions [class*="header-actions"] {
+  display: inline-block;
+}
+
+.header-actions [class*="header-actions"] span {
+  text-indent: -9999px;
+  position: absolute;
+  clip: rect(0, 0, 0, 0);
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+}
+
+.header-actions__calendar {
+  background: url("/icon/ico_calendar.svg") center / contain no-repeat;
+  height: 23px;
+  width: 29px;
+}
+
+.header-actions__notice {
+  background: url("/icon/ico_noti.svg") center / contain no-repeat;
+  height: 25.18px;
+  width: 28.08px;
+}
+
+.header-actions__exit {
+  background: url("/icon/ico_exit.svg") center / contain no-repeat;
+  height: 15px;
+  width: 15px;
+}
+
+.header-actions__share {
+  background: url("/icon/ico_flight.svg") center / contain no-repeat;
+  height: 28px;
+  width: 26px;
+}
+
+.ico_filter {
+  background: url("/icon/ico_filter.svg") center / contain no-repeat;
+  display: inline-block;
+  height: 8.75px;
+  width: 10px;
+}
+.ico_filter--active {
+  background: url("/icon/ico_filter__active.svg") center / contain no-repeat;
+}
+
+.ico {
+  background: center / contain no-repeat;
+  display: inline-block;
+  height: 26px;
+  width: 26px;
+}
+
+.ico_food {
+  background-image: url("/icon/ico_food.svg");
+}
+
+.ico_movie {
+  background-image: url("/icon/ico_movie.svg");
+}
+
+.ico_character {
+  background-image: url("/icon/ico_character.svg");
+}
+
+.ico_fashion {
+  background-image: url("/icon/ico_fashion.svg");
+}
+
+.ico_music {
+  background-image: url("/icon/ico_music.svg");
+}
+
+.ico_living {
+  background-image: url("/icon/ico_living.svg");
+}
+
+.ico_etc {
+  background-image: url("/icon/ico_etc.svg");
+}
+
+.ico_location {
+  background-image: url("/icon/ico_location.svg");
+  display: inline-block;
+  height: 10px;
+  width: 6px;
+}
+
+.ico_location--blue {
+  background-image: url("/icon/ico_location--blue.svg");
+  display: inline-block;
+  height: 10px;
+  width: 6px;
+}
+
+.bg-food {
+  background-color: var(--food);
+}
+.bg-movie {
+  background-color: var(--movie);
+}
+
+.bg-character {
+  background-color: var(--character);
+}
+
+.bg-fashion {
+  background-color: var(--fashion);
+}
+
+.bg-music {
+  background-color: var(--music);
+}
+
+.bg-living {
+  background-color: var(--living);
+}
+
+.bg-etc {
+  background-color: var(--etc);
+}
+
+.text-food {
+  color: var(--food);
+}
+.text-movie {
+  color: var(--movie);
+}
+
+.text-character {
+  color: var(--character);
+}
+
+.text-fashion {
+  color: var(--fashion);
+}
+
+.text-music {
+  color: var(--music);
+}
+
+.text-living {
+  color: var(--living);
+}
+
+.text-etc {
+  color: var(--etc);
+}
+
+.border-food {
+  border-color: var(--food);
+}
+.border-movie {
+  border-color: var(--movie);
+}
+
+.border-character {
+  border-color: var(--character);
+}
+
+.border-fashion {
+  border-color: var(--fashion);
+}
+
+.border-music {
+  border-color: var(--music);
+}
+
+.border-living {
+  border-color: var(--living);
+}
+
+.border-etc {
+  border-color: var(--etc);
+}
+
+#main.open {
+  overflow: hidden;
+  height: 100dvh;
+}
+
+.text-ellipsis-2 {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+
+.congestion-btn__icon {
+  background: center / contain no-repeat;
+  display: inline-block;
+  height: 45px;
+  width: 45px;
+}
+.ico_congestion {
+  background-image: url("/icon/ico_congestion_gray.svg");
+}
+
+.ico_normal {
+  background-image: url("/icon/ico_normal_gray.svg");
+}
+
+.ico_relaxed {
+  background-image: url("/icon/ico_relaxed_gray.svg");
+}
+
+.ico_congestion--active {
+  background-image: url("/icon/ico_congestion_white.svg");
+}
+
+.ico_normal--active {
+  background-image: url("/icon/ico_normal_white.svg");
+}
+
+.ico_relaxed--active {
+  background-image: url("/icon/ico_relaxed_white.svg");
+}
+
+.ico_rating__star {
+  background: url("/icon/ico_start-light-gray.svg") center / contain no-repeat;
+  cursor: pointer;
+  display: inline-block;
+  height: 49.5px;
+  width: 49.5px;
+  transition: all ease 0.3s;
+}
+.ico_rating__star.ico_rating__star--active {
+  background-image: url("/icon/ico_start-yellow.svg");
+}
+
+.ico_rating__star:hover {
+  filter: drop-shadow(1px 1px 4px gold);
+}
+
+.ico_info {
+  background: url("/icon/ico_info.svg") center / contain no-repeat;
+  display: inline-block;
+  height: 12px;
+  width: 12px;
+}
+
+.ico_star--sm {
+  background: url("/icon/ico_start-gray.svg") center / contain no-repeat;
+  display: inline-block;
+  height: 13.27px;
+  width: 11.98px;
+}
+
+.ico_star--sm--active {
+  background-image: url("/icon/ico_start-yellow.svg");
 }
 
 @layer utilities {
