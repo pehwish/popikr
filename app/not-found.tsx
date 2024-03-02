@@ -1,10 +1,18 @@
 import { NextPage } from "next";
+import Image from "next/image";
 
 const NotFound: NextPage = () => {
   return (
-    <div>
-      <div>이 페이지는 존재하지 않습니다. 다른 페이지를 검색해 보세요.</div>
-      {/* <Link href="/search">검색</Link> */}
+    <div className="fixed inset-0 flex h-svh items-end justify-center bg-[#000]">
+      <Image
+        src="/404.png"
+        alt="not-found"
+        width={0}
+        height={0}
+        sizes="100vh"
+        style={{ width: "100%", height: "100%" }}
+        className="object-contain"
+      />
     </div>
   );
 };
