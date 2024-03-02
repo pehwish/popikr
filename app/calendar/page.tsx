@@ -2,11 +2,7 @@ import Calendar from "@/components/Calendar";
 import Header from "@/components/Header";
 import PopupItem from "@/components/PopupItem";
 
-import { Faker, ko } from "@faker-js/faker";
-
-export const faker = new Faker({
-  locale: [ko],
-});
+import { faker } from "@/lib/faker";
 
 export default function CalendarPage() {
   return (
@@ -16,8 +12,8 @@ export default function CalendarPage() {
         <Calendar />
 
         <div className="mt-[50px]">
-          <div className="flex justify-between mb-[5px] items-end">
-            <h4 className="text-h2 ml-[13px] font-bold">TODAY</h4>
+          <div className="mb-[5px] flex items-end justify-between">
+            <h4 className="ml-[13px] text-h2 font-bold">TODAY</h4>
             <span className="text-h5 text-gray">2개</span>
           </div>
           <PopupItem

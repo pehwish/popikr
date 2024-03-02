@@ -36,7 +36,7 @@ export default function PopupDetailInfo({
         >
           <div className="flex flex-1 flex-col text-center">
             <dt className="mb-3 text-h5 font-bold">기간</dt>
-            <dd className="flex flex-1 flex-col justify-center border-r border-r-[0.5px] px-3 text-center text-h5 font-bold">
+            <dd className="flex flex-1 flex-col justify-center border-r-[0.5px] px-3 text-center text-h5 font-bold">
               <span>01.12</span>
               <span>|</span>
               <span>01.25</span>
@@ -59,11 +59,11 @@ export default function PopupDetailInfo({
         <dl>
           <dt className="mb-[10px] text-h5 font-bold">소개</dt>
           <dd className="mb-[24px] text-h5">
-            이번 '한국의 기하학적 추상미술'전은 1920년대부터 1970년대까지
-            추상작가 47명의 작품 150여 점과 아카이브를 통해 그동안 한국
-            미술사에서 비교적 소외돼 왔던 기하학적 추상미술을 조명합니다. 40여
-            명의 작가의 작품들과 함께 한국의 기하학적 추상미술이 지닌 의미와
-            독자성을 경험해 보세요.
+            이번 &apos;한국의 기하학적 추상미술&apos;전은 1920년대부터
+            1970년대까지 추상작가 47명의 작품 150여 점과 아카이브를 통해 그동안
+            한국 미술사에서 비교적 소외돼 왔던 기하학적 추상미술을 조명합니다.
+            40여 명의 작가의 작품들과 함께 한국의 기하학적 추상미술이 지닌
+            의미와 독자성을 경험해 보세요.
           </dd>
         </dl>
       </div>

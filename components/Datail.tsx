@@ -5,11 +5,7 @@ import { useCallback, useState } from "react";
 import PopupDetailInfo from "./PopupDetailInfo";
 import PopupDetailReview from "./PopupDetailReview";
 
-import { Faker, ko } from "@faker-js/faker";
-
-export const faker = new Faker({
-  locale: [ko],
-});
+import { faker } from "@/lib/faker";
 
 const TabData = [
   {

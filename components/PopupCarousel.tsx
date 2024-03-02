@@ -3,12 +3,7 @@
 import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 
-import { Faker, ko } from "@faker-js/faker";
 import IcoCategory from "./IcoCategory";
-
-export const faker = new Faker({
-  locale: [ko],
-});
 
 interface PopoupCarousel {
   type: string;

@@ -1,6 +1,7 @@
 "use client";
 
 import clsx from "clsx";
+import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useCallback } from "react";
@@ -44,7 +45,12 @@ export default function Header({
             test: type === "home",
             component: (
               <Link href={"/"}>
-                <img src="/icon/logo.svg" alt="POPIKR" />
+                <Image
+                  src="/icon/logo.svg"
+                  width={81}
+                  height={27}
+                  alt="POPIKR"
+                />
               </Link>
             ),
           },
@@ -52,7 +58,12 @@ export default function Header({
             test: type === "detail",
             component: (
               <button onClick={handleGoBack} className="header__back">
-                <img src="/icon/ico_arrow.svg" alt="뒤로가기" />
+                <Image
+                  src="/icon/ico_arrow.svg"
+                  width={28}
+                  height={28}
+                  alt="뒤로가기"
+                />
               </button>
             ),
           },
@@ -74,22 +85,37 @@ export default function Header({
       <div className="flex space-x-[15px]">
         <Maybe test={Boolean(actions?.includes("calendar"))}>
           <Link href={"/calendar"}>
-            <img src="/icon/ico_calendar.svg" alt="calendar" />
+            <Image
+              src="/icon/ico_calendar.svg"
+              width={29}
+              height={23}
+              alt="calendar"
+            />
           </Link>
         </Maybe>
         <Maybe test={Boolean(actions?.includes("notice"))}>
           <Link href={"/notice"}>
-            <img src="/icon/ico_noti.svg" alt="notice" />
+            <Image
+              src="/icon/ico_noti.svg"
+              width={28}
+              height={25}
+              alt="notice"
+            />
           </Link>
         </Maybe>
         <Maybe test={Boolean(actions?.includes("share"))}>
           <button>
-            <img src="/icon/ico_flight.svg" alt="share" />
+            <Image
+              src="/icon/ico_flight.svg"
+              width={26}
+              height={28}
+              alt="share"
+            />
           </button>
         </Maybe>
         <Maybe test={Boolean(actions?.includes("exit"))}>
           <button onClick={handleGoBack}>
-            <img src="/icon/ico_exit.svg" alt="닫기" />
+            <Image src="/icon/ico_exit.svg" width={15} height={15} alt="닫기" />
           </button>
         </Maybe>
       </div>
