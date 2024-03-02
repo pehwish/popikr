@@ -17,7 +17,9 @@ export default function RootLayout({
   return (
     <html lang="ko">
       <body>
-        <main id="main">{children}</main>
+        <main id="main" className="mx-auto max-w-screen-sm">
+          {children}
+        </main>
         {modal}
       </body>
     </html>

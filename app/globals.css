@@ -19,106 +19,6 @@
   --etc: #000;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
-}
-
-html {
-  -webkit-font-smoothing: antialiased;
-  font-size: 16px;
-}
-
-body {
-  color: var(--foreground-rgb);
-  font-family:
-    "Pretendard Variable",
-    Pretendard,
-    -apple-system,
-    BlinkMacSystemFont,
-    system-ui,
-    Roboto,
-    "Helvetica Neue",
-    "Segoe UI",
-    "Apple SD Gothic Neo",
-    "Noto Sans KR",
-    "Malgun Gothic",
-    "Apple Color Emoji",
-    "Segoe UI Emoji",
-    "Segoe UI Symbol",
-    sans-serif;
-}
-
-#header {
-  height: 60px;
-  margin: 0 14px 0 23px;
-}
-.header__logo {
-  height: 27px;
-  text-indent: -9999px;
-  width: 81px;
-  background: url("/icon/logo.svg") center / contain no-repeat;
-}
-
-.header__back {
-  background: url("/icon/ico_arrow.svg") center / contain no-repeat;
-  display: inline-block;
-  height: 28px;
-  margin-right: 10px;
-  width: 28px;
-}
-
-.header-actions [class*="header-actions"] {
-  display: inline-block;
-}
-
-.header-actions [class*="header-actions"] span {
-  text-indent: -9999px;
-  position: absolute;
-  clip: rect(0, 0, 0, 0);
-  width: 1px;
-  height: 1px;
-  margin: -1px;
-  overflow: hidden;
-}
-
-.header-actions__calendar {
-  background: url("/icon/ico_calendar.svg") center / contain no-repeat;
-  height: 23px;
-  width: 29px;
-}
-
-.header-actions__notice {
-  background: url("/icon/ico_noti.svg") center / contain no-repeat;
-  height: 25.18px;
-  width: 28.08px;
-}
-
-.header-actions__exit {
-  background: url("/icon/ico_exit.svg") center / contain no-repeat;
-  height: 15px;
-  width: 15px;
-}
-
-.header-actions__share {
-  background: url("/icon/ico_flight.svg") center / contain no-repeat;
-  height: 28px;
-  width: 26px;
-}
-
-.ico_filter {
-  background: url("/icon/ico_filter.svg") center / contain no-repeat;
-  display: inline-block;
-  height: 8.75px;
-  width: 10px;
-}
-.ico_filter--active {
-  background: url("/icon/ico_filter__active.svg") center / contain no-repeat;
-}
-
 .ico {
   background: center / contain no-repeat;
   display: inline-block;
@@ -324,6 +224,49 @@ body {
 
 .ico_star--sm--active {
   background-image: url("/icon/ico_start-yellow.svg");
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
+  }
+}
+
+@layer base {
+  html {
+    -webkit-font-smoothing: antialiased;
+    font-size: 16px;
+  }
+
+  body {
+    color: var(--foreground-rgb);
+    font-family:
+      "Pretendard Variable",
+      Pretendard,
+      -apple-system,
+      BlinkMacSystemFont,
+      system-ui,
+      Roboto,
+      "Helvetica Neue",
+      "Segoe UI",
+      "Apple SD Gothic Neo",
+      "Noto Sans KR",
+      "Malgun Gothic",
+      "Apple Color Emoji",
+      "Segoe UI Emoji",
+      "Segoe UI Symbol",
+      sans-serif;
+  }
+}
+@layer components {
+  .btn-rounded {
+    @apply h-[27px] w-[122px] rounded text-h5 font-bold text-white;
+  }
+  .btn {
+    @apply flex h-[27px] items-center justify-center rounded-lg border border-gray text-h5;
+  }
 }
 
 @layer utilities {

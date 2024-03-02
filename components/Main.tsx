@@ -2,26 +2,15 @@
 
 import Header from "@/components/Header";
 import Tab from "@/components/Tab";
-import { Faker, ko } from "@faker-js/faker";
+import { faker } from "@/lib/faker";
+import IPopupItem from "@/model/popup";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import NoticeItem from "./NoticeItem";
 import PopupItem from "./PopupItem";
 import SwitchCase from "./SwitchCase";
 
-interface PopupItem {
-  id: number;
-  imgSrc: string;
-  categories: string[];
-  startDt: Date;
-  endDt: Date;
-  title: string;
-  address: string;
-}
-
-export const faker = new Faker({
-  locale: [ko],
-});
+import clsx from "clsx";
 
 const TabData = [
   {
@@ -38,10 +27,10 @@ const TabData = [
   },
 ];
 
-const dummyData: PopupItem[] = [
+const dummyData: IPopupItem[] = [
   {
     id: 1,
-    imgSrc: faker.image.urlLoremFlickr(),
+    imgSrc: faker.image.urlLoremFlickr() || "",
     categories: ["music"],
     startDt: faker.date.past(),
     endDt: faker.date.past(),
@@ -50,7 +39,7 @@ const dummyData: PopupItem[] = [
   },
   {
     id: 2,
-    imgSrc: faker.image.urlLoremFlickr(),
+    imgSrc: faker.image.urlLoremFlickr() || "",
     categories: ["food", "character"],
     startDt: faker.date.soon({ days: 10 }),
     endDt: faker.date.soon({ days: 10 }),
@@ -59,7 +48,7 @@ const dummyData: PopupItem[] = [
   },
   {
     id: 3,
-    imgSrc: faker.image.urlLoremFlickr(),
+    imgSrc: faker.image.urlLoremFlickr() || "",
     categories: ["living"],
     startDt: faker.date.soon(),
     endDt: faker.date.soon(),
@@ -69,8 +58,9 @@ const dummyData: PopupItem[] = [
 ];
 
 export default function Main() {
+  const [list, setList] = useState<IPopupItem[]>([]);
   const [activeIndex, setActiveIndex] = useState<Number>(0);
-  const [list, setList] = useState<PopupItem[]>([]);
+  const [filters, setFilters] = useState([]);
 
   const handleClick = (key: String, index: Number): void => {
     console.log("key", key);
@@ -86,9 +76,36 @@ export default function Main() {
     <>
       <Header type="home" actions={["calendar", "notice"]} />
       <Tab tabs={TabData} activeIndex={activeIndex} onClick={handleClick}>
-        <Link href="/filter" className="text-gray">
+        <Link
+          href="/filter"
+          className={clsx(
+            "flex items-center",
+            filters.length ? "text-living" : "text-gray",
+          )}
+        >
           <span className="text-h5">전체</span>
-          <i className="ico_filter ml-1.5"></i>
+
+          <SwitchCase
+            tests={[
+              {
+                test: Boolean(filters.length),
+                component: (
+                  <img
+                    src="/icon/ico_filter__active.svg"
+                    alt=""
+                    className="ml-1.5 w-[10px]"
+                  />
+                ),
+              },
+            ]}
+            defaultComponent={
+              <img
+                src="/icon/ico_filter.svg"
+                alt=""
+                className="ml-1.5 w-[10px]"
+              />
+            }
+          />
         </Link>
       </Tab>
       <div className="popup-list mx-23 my-3.5 grid grid-cols-1 gap-y-2.5">

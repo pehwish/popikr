@@ -14,24 +14,37 @@ interface HeaderProps {
   type: HeaderType;
   actions?: Action[];
   title?: string;
+  onClickBack?: () => void;
 }
 
-export default function Header({ type, actions, title }: HeaderProps) {
+export default function Header({
+  type,
+  actions,
+  title,
+  onClickBack,
+}: HeaderProps) {
   const router = useRouter();
 
   const handleGoBack = useCallback(() => {
+    if (onClickBack) {
+      onClickBack();
+      return;
+    }
     router.back();
-  }, []);
+  }, [onClickBack]);
 
   return (
-    <header id="header" className="flex items-center justify-between">
+    <header
+      id="header"
+      className="ml-[23px] mr-[14px] flex h-[60px] items-center justify-between"
+    >
       <SwitchCase
         tests={[
           {
             test: type === "home",
             component: (
               <Link href={"/"}>
-                <h1 className="header__logo">POPIKR</h1>
+                <img src="/icon/logo.svg" alt="POPIKR" />
               </Link>
             ),
           },
@@ -39,7 +52,7 @@ export default function Header({ type, actions, title }: HeaderProps) {
             test: type === "detail",
             component: (
               <button onClick={handleGoBack} className="header__back">
-                <span className="hidden">뒤로가기</span>
+                <img src="/icon/ico_arrow.svg" alt="뒤로가기" />
               </button>
             ),
           },
@@ -50,7 +63,7 @@ export default function Header({ type, actions, title }: HeaderProps) {
       <Maybe test={!!title}>
         <h1
           className={clsx(
-            "header__title text-h3 font-bold mr-auto",
+            "header__title mr-auto text-h3 font-bold",
             type === "filter" && "mx-auto",
           )}
         >
@@ -58,25 +71,25 @@ export default function Header({ type, actions, title }: HeaderProps) {
         </h1>
       </Maybe>
 
-      <div className="header-actions space-x-[15px] flex">
+      <div className="flex space-x-[15px]">
         <Maybe test={Boolean(actions?.includes("calendar"))}>
-          <Link href={"/calendar"} className="header-actions__calendar">
-            <span>calendar</span>
+          <Link href={"/calendar"}>
+            <img src="/icon/ico_calendar.svg" alt="calendar" />
           </Link>
         </Maybe>
         <Maybe test={Boolean(actions?.includes("notice"))}>
-          <Link href={"/notice"} className="header-actions__notice">
-            <span>notice</span>
+          <Link href={"/notice"}>
+            <img src="/icon/ico_noti.svg" alt="notice" />
           </Link>
         </Maybe>
         <Maybe test={Boolean(actions?.includes("share"))}>
-          <button className="header-actions__share">
-            <span>share</span>
+          <button>
+            <img src="/icon/ico_flight.svg" alt="share" />
           </button>
         </Maybe>
         <Maybe test={Boolean(actions?.includes("exit"))}>
-          <button onClick={handleGoBack} className="header-actions__exit">
-            <span>exit</span>
+          <button onClick={handleGoBack}>
+            <img src="/icon/ico_exit.svg" alt="닫기" />
           </button>
         </Maybe>
       </div>

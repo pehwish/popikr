@@ -134,7 +134,7 @@ export default function Calendar() {
             )}
 
             <span
-              className={`inline-flex h-9 w-9 items-center justify-center rounded border ${d.day === selected ? "border-food" : "border-transparent"}`}
+              className={`inline-flex h-9 w-9 items-center justify-center rounded border ${d.isCurrentMonth && d.day === selected ? "border-food" : "border-transparent"}`}
             >
               {d.day}
             </span>

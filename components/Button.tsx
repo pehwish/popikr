@@ -1,5 +1,7 @@
 "use client";
 
+import clsx from "clsx";
+
 interface Button {
   text: string;
   value: string;
@@ -20,8 +22,8 @@ export default function Button({
   };
   return (
     <button
-      className={`flex h-[27px] items-center justify-center rounded-lg border border-gray text-h5 
-      ${isActive ? `font-bold ${!isCate ? "border-living text-living" : `text-${value} border-${value}`}` : "text-gray"}`}
+      className={clsx(`btn
+      ${isActive ? `font-bold ${!isCate ? "border-living text-living" : `text-${value} border-${value}`}` : "text-gray"}`)}
       onClick={handleClick}
     >
       {text}

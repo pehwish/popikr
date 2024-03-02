@@ -37,16 +37,10 @@ export default function Popup({
 
   return (
     <div
-      className={clsx(
-        `fixed  bottom-0 left-0 right-0 top-0 z-10 flex items-end bg-etc/[.7]`,
-      )}
+      className="fixed inset-0 left-[50%] z-10 flex w-full max-w-screen-sm translate-x-[-50%] items-end bg-etc/[.7]"
       onClick={handleClickBack}
     >
-      <div
-        className={clsx(
-          "animate-a relative w-full rounded-t bg-white px-23 pb-[32px] pt-[45px] text-center",
-        )}
-      >
+      <div className="animate-a relative w-full rounded-t bg-white px-23 pb-[32px] pt-[45px] text-center">
         <h3
           className={clsx(
             "font-bold",

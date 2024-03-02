@@ -18,10 +18,7 @@ export default function RoundBtn({
   return (
     <button
       onClick={handleClick}
-      className={clsx(
-        "h-[27px] w-[122px] rounded text-h5 font-bold text-white",
-        isDisabled ? "bg-gray" : "bg-living",
-      )}
+      className={clsx("btn-rounded", isDisabled ? "bg-gray" : "bg-living")}
     >
       {text}
     </button>

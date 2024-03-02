@@ -16,27 +16,31 @@ interface TabProps {
 }
 
 export default function Tab({
-  tabs,
+  tabs = [],
   activeIndex,
   onClick,
   children,
 }: TabProps) {
   return (
-    <div className="flex mx-23 border-b border-[#eee] mt-5 justify-between">
+    <div className="mx-23 mt-5 flex justify-between border-b border-[#eee]">
       <div className="tab space-x-15 ">
-        {tabs.map(({ key, value }, index) => (
+        {tabs?.map(({ key, value }, index) => (
           <button
             className={clsx(
-              "inline-flex items-center tab__item text-h2 pb-1.5 border-b-2 mb-[-1px]",
-              {
-                "border-black font-bold": index === activeIndex,
-                "border-transparent": index !== activeIndex,
-              },
+              "tab__item relative mb-[-1px] inline-flex items-center pb-1.5 text-h2 transition-all",
+              { "font-bold": index === activeIndex },
             )}
             onClick={() => onClick(key, index)}
             key={`tab_${value}`}
           >
             {value}
+
+            <span
+              className={clsx(
+                "absolute bottom-[.5px] left-[50%] inline-block h-[2px] origin-center translate-x-[-50%] bg-etc transition-all",
+                index === activeIndex ? "w-full" : "w-0",
+              )}
+            ></span>
           </button>
         ))}
       </div>
