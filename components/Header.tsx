@@ -1,9 +1,10 @@
 "use client";
 
+import share from "@/lib/share";
 import clsx from "clsx";
 import Image from "next/image";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import { useCallback } from "react";
 import Maybe from "./Maybe";
 import SwitchCase from "./SwitchCase";
@@ -25,6 +26,7 @@ export default function Header({
   onClickBack,
 }: HeaderProps) {
   const router = useRouter();
+  const pathname = usePathname();
 
   const handleGoBack = useCallback(() => {
     if (onClickBack) {
@@ -33,6 +35,20 @@ export default function Header({
     }
     router.back();
   }, [onClickBack]);
+
+  const handleShare = async () => {
+    let dataToShare = {
+      url: pathname,
+      title: title,
+      text: "",
+    };
+    const result = await share(dataToShare);
+    if (result === "copiedToClipboard") {
+      alert("링크를 클립보드에 복사했습니다.");
+    } else if (result === "failed") {
+      alert("공유하기가 지원되지 않는 환경입니다.");
+    }
+  };
 
   return (
     <header
@@ -104,7 +120,7 @@ export default function Header({
           </Link>
         </Maybe>
         <Maybe test={Boolean(actions?.includes("share"))}>
-          <button>
+          <button onClick={handleShare}>
             <Image
               src="/icon/ico_flight.svg"
               width={26}

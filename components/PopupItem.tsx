@@ -40,7 +40,7 @@ export default function PopupItem({
       <div
         className={`popup-item overflow-hidden rounded-sm empty:animate-pulse`}
       >
-        <figure className="empty:bg-slate-200 h-[252px]">
+        <figure className="empty:bg-slate-200">
           <Maybe test={!isShort}>
             <div className="relative">
               <img

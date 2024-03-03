@@ -17,15 +17,16 @@ export default function ReviewTextarea({ onReview }: ReviewTextarea) {
   return (
     <div className="mx-23 mt-[34px] pt-1.5">
       <h3 className="text-h2 font-bold">후기</h3>
-      <div className="relative mt-1.5 h-[171px] w-full rounded-sm border border-[#eee] px-[8px] py-[15px]">
+      <div className="relative">
         <textarea
           name="review"
           id="review"
-          className="h-full w-full resize-none outline-0"
+          className="focus:invalid:ring-blue-500 focus:border-blue-500 mt-1.5 h-[171px]  w-full resize-none rounded-sm border border-[#eee] px-[8px] py-[15px] "
           value={review}
           onChange={handleReview}
           placeholder="최대 500자까지 입력할 수 있어요."
         ></textarea>
+
         <span className="absolute bottom-[12px] right-[13px] text-h5 text-gray">
           {review.length}/500
         </span>

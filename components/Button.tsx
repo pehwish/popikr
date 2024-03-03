@@ -22,8 +22,12 @@ export default function Button({
   };
   return (
     <button
-      className={clsx(`btn
-      ${isActive ? `font-bold ${!isCate ? "border-living text-living" : `text-${value} border-${value}`}` : "text-gray"}`)}
+      className={clsx(
+        "btn transition-all",
+        isActive
+          ? `font-bold ${!isCate ? "border-living text-living" : `text-${value} border-${value}`}`
+          : "text-gray",
+      )}
       onClick={handleClick}
     >
       {text}
