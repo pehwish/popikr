@@ -31,14 +31,14 @@ export default function RatingStart({ onRating }: RatingStart) {
           <button key={i} onClick={() => handleClick(i)}>
             {i < isActive ? (
               <Image
-                src="/icon/ico_start-yellow.svg"
+                src="/icon/ico_star-yellow.svg"
                 width={49.5}
                 height={49.5}
                 alt=""
               />
             ) : (
               <Image
-                src="/icon/ico_start-light-gray.svg"
+                src="/icon/ico_star-light-gray.svg"
                 width={49.5}
                 height={49.5}
                 alt=""

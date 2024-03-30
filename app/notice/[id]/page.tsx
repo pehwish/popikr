@@ -13,7 +13,7 @@ export default function NoticeDetail() {
 
           <h5 className="mb-[7px] mt-2 text-h5">{date(new Date())}</h5>
         </div>
-        <div className="notice-detail__body my-2 border-y border-[#eee]">
+        <div className="notice-detail__body border-y border-[#eee] py-2">
           Lorem, ipsum dolor sit amet consectetur adipisicing elit. Deleniti
           voluptate alias, earum, provident sequi reiciendis natus laboriosam
           nobis numquam a doloribus facilis veniam iste neque. Distinctio neque

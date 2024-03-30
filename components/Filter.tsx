@@ -41,10 +41,10 @@ export default function Filter() {
   }, []);
 
   return (
-    <div className="relative min-h-dvh flex flex-col overflow-y-auto">
+    <div className="relative flex min-h-dvh flex-col overflow-y-auto">
       <Header type="filter" title="필터" actions={["exit"]} />
-      <div className="mt-[25px] mx-23 mb-44">
-        <h2 className="text-h1 mb-[38px]">
+      <div className="mx-22 mb-44 mt-[25px]">
+        <h2 className="mb-[32px] text-h1">
           어떤 팝업 스토어를 <br />
           <strong className="font-bold">찾고 계신가요?</strong>
         </h2>
@@ -70,7 +70,7 @@ export default function Filter() {
           </p>
         </NoticeItem>
       </div>
-      <FixedButton text="등록하기" value={"등록하기"} onClick={handleSubmit} />
+      <FixedButton text="필터적용" value={"필터적용"} onClick={handleSubmit} />
     </div>
   );
 }

@@ -1,16 +1,15 @@
 "use client";
 
-import Header from "@/components/Header";
 import Tab from "@/components/Tab";
 import { faker } from "@/lib/faker";
 import IPopupItem from "@/model/popup";
+import clsx from "clsx";
+import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import NoticeItem from "./NoticeItem";
 import PopupItem from "./PopupItem";
 import SwitchCase from "./SwitchCase";
-
-import clsx from "clsx";
 
 const TabData = [
   {
@@ -63,8 +62,6 @@ export default function Main() {
   const [filters, setFilters] = useState([]);
 
   const handleClick = (key: String, index: Number): void => {
-    console.log("key", key);
-    console.log("index", index);
     setActiveIndex(index);
   };
 
@@ -74,7 +71,6 @@ export default function Main() {
 
   return (
     <>
-      <Header type="home" actions={["calendar", "notice"]} />
       <Tab tabs={TabData} activeIndex={activeIndex} onClick={handleClick}>
         <Link
           href="/filter"
@@ -90,31 +86,39 @@ export default function Main() {
               {
                 test: Boolean(filters.length),
                 component: (
-                  <img
+                  <Image
                     src="/icon/ico_filter__active.svg"
-                    alt=""
-                    className="ml-1.5 w-[10px]"
+                    alt="필터"
+                    width={10}
+                    height={8.75}
+                    className="ml-1.5"
                   />
                 ),
               },
             ]}
             defaultComponent={
-              <img
+              <Image
                 src="/icon/ico_filter.svg"
-                alt=""
-                className="ml-1.5 w-[10px]"
+                alt="필터"
+                width={10}
+                height={8.75}
+                className="ml-1.5"
               />
             }
           />
         </Link>
       </Tab>
-      <div className="popup-list mx-23 my-3.5 grid grid-cols-1 gap-y-2.5">
+      <div className="popup-list mx-22 my-3.5 grid grid-cols-1 gap-y-2.5">
         <SwitchCase
           tests={[
             {
               test: Boolean(list.length),
               component: list?.map((item) => (
-                <PopupItem key={item.id} {...item} />
+                <PopupItem
+                  key={item.id}
+                  {...item}
+                  last={item.categories.at(-1)}
+                />
               )),
             },
           ]}

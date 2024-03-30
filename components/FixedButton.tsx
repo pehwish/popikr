@@ -19,12 +19,12 @@ export default function FixedButton({
     onClick(value);
   };
   return (
-    <div className="mx-23 mt-auto pb-12">
+    <div className="mx-23 mt-auto pb-8">
       <button
         onClick={handleClick}
         disabled={isDisabled}
         className={clsx(
-          "text-h3 rounded h-12 flex items-center justify-center font-bold w-full",
+          "flex h-12 w-full items-center justify-center rounded text-h3 font-bold",
           {
             "bg-gray-light text-gray": isDisabled,
             "bg-living text-white": !isDisabled,

@@ -1,6 +1,7 @@
 "use client";
 
 import share from "@/lib/share";
+import { Action, HeaderType } from "@/model";
 import clsx from "clsx";
 import Image from "next/image";
 import Link from "next/link";
@@ -8,9 +9,6 @@ import { usePathname, useRouter } from "next/navigation";
 import { useCallback } from "react";
 import Maybe from "./Maybe";
 import SwitchCase from "./SwitchCase";
-
-type Action = "calendar" | "notice" | "share" | "exit";
-type HeaderType = "home" | "detail" | "filter";
 
 interface HeaderProps {
   type: HeaderType;
@@ -53,7 +51,7 @@ export default function Header({
   return (
     <header
       id="header"
-      className="ml-[23px] mr-[14px] flex h-[60px] items-center justify-between"
+      className="ml-22 mr-[15px] flex h-[60px] items-center justify-between"
     >
       <SwitchCase
         tests={[
@@ -73,7 +71,7 @@ export default function Header({
           {
             test: type === "detail",
             component: (
-              <button onClick={handleGoBack} className="header__back">
+              <button onClick={handleGoBack} className="header__back mr-2.5">
                 <Image
                   src="/icon/ico_arrow.svg"
                   width={28}

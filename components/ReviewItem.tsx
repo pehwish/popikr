@@ -1,7 +1,7 @@
-import clsx from "clsx";
 import dayjs from "dayjs";
 import "dayjs/locale/ko";
 import relativeTime from "dayjs/plugin/relativeTime";
+import Image from "next/image";
 
 dayjs.locale("ko");
 dayjs.extend(relativeTime);
@@ -16,15 +16,18 @@ export default function ReviewItem({ rating, review, createdAt }: ReviewItem) {
   return (
     <div className="mb-[10px] border-t border-[#eee]">
       <div className="mb-[15px] mt-[5px] flex justify-between">
-        <div>
+        <div className="flex">
           {[...new Array(5)].map((_, i) => (
-            <i
-              key={i}
-              className={clsx(
-                `ico_star--sm`,
-                i < rating && "ico_star--sm--active",
-              )}
-            ></i>
+            <Image
+              src={
+                i < rating
+                  ? "/icon/ico_star-yellow.svg"
+                  : "/icon/ico_star-gray.svg"
+              }
+              width={11.98}
+              height={13.98}
+              alt=""
+            />
           ))}
         </div>
         <span className="text-h6 text-gray">

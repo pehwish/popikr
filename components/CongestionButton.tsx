@@ -1,31 +1,15 @@
 "use client";
 
+import { CongestionType } from "@/model/congestion";
+import Image from "next/image";
 import { useCallback, useState } from "react";
 import Maybe from "./Maybe";
 import Popup from "./Popup";
 import RoundBtn from "./RoundBtn";
+import SwitchCase from "./SwitchCase";
 import Toast from "./Toast";
 
-const congestion = [
-  {
-    type: "congestion",
-    text: "혼잡",
-    desc: "웨이팅 50팀 이상\n대기시간 1시간 이상",
-    color: "food",
-  },
-  {
-    type: "normal",
-    text: "보통",
-    desc: "웨이팅 10팀 이하\n대기시간 30분 이하",
-    color: "fashion",
-  },
-  {
-    type: "relaxed",
-    text: "여유",
-    desc: "바로 입장 가능",
-    color: "living",
-  },
-];
+import clsx from "clsx";
 
 export default function CongestionButton() {
   const [isActive, setIsActive] = useState<string>("");
@@ -96,16 +80,41 @@ export default function CongestionButton() {
         혼잡도를 공유해주세요.
       </p>
       <div className="congestion-btns mb-[23px] flex gap-6">
-        {congestion?.map(({ type, text, desc, color }) => (
+        {CongestionType?.map(({ type, text, desc, color }) => (
           <button
             key={type}
             onClick={() => handleClick(type)}
-            className={`congestion-btn flex flex-1 flex-col items-center rounded border-2 border-gray py-3  ${isActive === type ? `border-${color} bg-${color} text-white` : "text-gray"}`}
+            className={clsx(
+              `congestion-btn flex flex-1 flex-col items-center rounded border-2 border-gray py-3 transition-all`,
+              isActive === type
+                ? `border-${color} bg-${color} text-white`
+                : "text-gray",
+            )}
           >
-            <i
-              className={`congestion-btn__icon ico_${type} ${isActive === type && `ico_${type}--active`}`}
-            ></i>
-            <span className="my-[5px] text-h5 font-bold ">{text}</span>
+            <SwitchCase
+              tests={[
+                {
+                  test: isActive === type,
+                  component: (
+                    <Image
+                      src={`/icon/ico_${type}_white.svg`}
+                      width={45}
+                      height={45}
+                      alt={type}
+                    />
+                  ),
+                },
+              ]}
+              defaultComponent={
+                <Image
+                  src={`/icon/ico_${type}_gray.svg`}
+                  width={45}
+                  height={45}
+                  alt={type}
+                />
+              }
+            />
+            <span className="my-[5px] text-h5 font-bold">{text}</span>
             <span className="whitespace-break-spaces text-h6">{desc}</span>
           </button>
         ))}

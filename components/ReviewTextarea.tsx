@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { ChangeEvent, useState } from "react";
 
 interface ReviewTextarea {
@@ -32,7 +33,13 @@ export default function ReviewTextarea({ onReview }: ReviewTextarea) {
         </span>
       </div>
       <span className="mt-[15px] flex items-center text-h5 text-gray">
-        <i className="ico_info mr-1"></i>
+        <Image
+          src="/icon/ico_info.svg"
+          width={12}
+          height={12}
+          alt=""
+          className="mr-1"
+        />
         부적절한 후기는 운영자에 의해 삭제될 수 있습니다.
       </span>
     </div>

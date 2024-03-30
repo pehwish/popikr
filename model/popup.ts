@@ -7,6 +7,7 @@ interface IPopupItem {
   title: string;
   address: string;
   isShort?: boolean;
+  last?: string;
 }
 
 export default IPopupItem;

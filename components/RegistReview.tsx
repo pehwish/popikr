@@ -1,5 +1,4 @@
 "use client";
-import Header from "@/components/Header";
 
 import { useState } from "react";
 import FixedButton from "./FixedButton";
@@ -27,8 +26,7 @@ export default function RegistReview() {
   };
 
   return (
-    <div className="relative flex min-h-dvh flex-col overflow-y-auto">
-      <Header type="detail" title="후기 등록하기" />
+    <>
       <div className="mx-23 mb-4 mt-[25px] h-[207px]">
         <h2 className="text-h1">
           팝업 스토어에서
@@ -58,6 +56,6 @@ export default function RegistReview() {
           onClick={registReview}
         />
       </Maybe>
-    </div>
+    </>
   );
 }

@@ -70,12 +70,16 @@ export default function Calendar() {
 
     for (let i = 0; i < 7; i++) {
       days.push(
-        <div className="text-center text-h3 text-gray" key={i}>
+        <div className="text-center text-h3 font-bold text-gray" key={i}>
           {now?.weekday(i).format(dateFormat)}
         </div>,
       );
     }
-    return <div className="days grid h-[34px] grid-cols-7 gap-0">{days}</div>;
+    return (
+      <div className="days mb-22 grid h-[34px] grid-cols-7 items-center gap-0">
+        {days}
+      </div>
+    );
   };
   useEffect(() => {
     const today = dayjs();
@@ -142,7 +146,7 @@ export default function Calendar() {
         );
       });
       rows.push(
-        <div className="grid grid-cols-7" key={index}>
+        <div className="grid grid-cols-7 gap-2.5" key={index}>
           {days}
         </div>,
       );

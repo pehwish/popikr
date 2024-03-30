@@ -3,7 +3,9 @@
 import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 
+import Image from "next/image";
 import IcoCategory from "./IcoCategory";
+import SwitchCase from "./SwitchCase";
 
 interface PopoupCarousel {
   type: string;
@@ -43,13 +45,33 @@ export default function PopupCarousel({
         className={`mt-[5px] flex flex-col justify-center overflow-hidden rounded px-[24px] py-[13px] bg-${type} ${type === "character" ? "text-living" : "text-white"}`}
       >
         <h3 className="text-ellipsis-2 mb-px text-h3 font-bold">{title}</h3>
-        <p className="mt-1 flex text-h5">
-          <i
-            className={`mt-1 ${
-              type === "character" ? "ico_location--blue" : "ico_location"
-            }`}
-          ></i>
-          <span className="ml-1 flex-1">{address}</span>
+        <p className="flex items-center truncate text-h5">
+          <SwitchCase
+            tests={[
+              {
+                test: type === "character",
+                component: (
+                  <Image
+                    src="/icon/ico_location--blue.svg"
+                    className="mr-1"
+                    alt="지역"
+                    width={6}
+                    height={10}
+                  />
+                ),
+              },
+            ]}
+            defaultComponent={
+              <Image
+                src="/icon/ico_location.svg"
+                className="mr-1"
+                alt="지역"
+                width={6}
+                height={10}
+              />
+            }
+          />
+          {address}
         </p>
       </div>
     </>

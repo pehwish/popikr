@@ -1,3 +1,4 @@
+import Image from "next/image";
 interface IcoCategory {
   categories: string[];
 }
@@ -6,9 +7,13 @@ export default function IcoCategory({ categories = [] }: IcoCategory) {
   return (
     <>
       {categories.map((cate) => (
-        <i key={cate} className={`ico ico_${cate}`}>
-          <span className="hidden">{cate}</span>
-        </i>
+        <Image
+          src={`/icon/ico_${cate}.svg`}
+          alt={cate}
+          width={26}
+          height={26}
+          key={cate}
+        />
       ))}
     </>
   );

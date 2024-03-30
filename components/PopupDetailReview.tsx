@@ -4,7 +4,7 @@ import ReviewItem from "./ReviewItem";
 import ReviewStarArea from "./ReviewStarArea";
 import SwitchCase from "./SwitchCase";
 
-import { Faker, ko } from "@faker-js/faker";
+import { faker } from "@/lib/faker";
 
 interface PopupDetailReview {
   images: { imgSrc: string }[];
@@ -12,10 +12,6 @@ interface PopupDetailReview {
   type: string;
   address: string;
 }
-
-export const faker = new Faker({
-  locale: [ko],
-});
 
 const dummyData = [
   {

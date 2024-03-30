@@ -1,5 +1,11 @@
+import Header from "@/components/Header";
 import Main from "@/components/Main";
 
 export default function HomePage() {
-  return <Main />;
+  return (
+    <>
+      <Header type="home" actions={["calendar", "notice"]} />
+      <Main />
+    </>
+  );
 }
