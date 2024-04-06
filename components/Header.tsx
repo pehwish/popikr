@@ -32,7 +32,7 @@ export default function Header({
       return;
     }
     router.back();
-  }, [onClickBack]);
+  }, [router, onClickBack]);
 
   const handleShare = async () => {
     let dataToShare = {

@@ -20,7 +20,7 @@ export default function RatingStart({ onRating }: RatingStart) {
         onRating(i + 1);
       }
     },
-    [isActive],
+    [isActive, onRating],
   );
 
   return (
@@ -29,21 +29,16 @@ export default function RatingStart({ onRating }: RatingStart) {
       <div className="mx-auto flex justify-between px-[44px]">
         {[...new Array(5)].map((_, i) => (
           <button key={i} onClick={() => handleClick(i)}>
-            {i < isActive ? (
-              <Image
-                src="/icon/ico_star-yellow.svg"
-                width={49.5}
-                height={49.5}
-                alt=""
-              />
-            ) : (
-              <Image
-                src="/icon/ico_star-light-gray.svg"
-                width={49.5}
-                height={49.5}
-                alt=""
-              />
-            )}
+            <Image
+              src={
+                i < isActive
+                  ? "/icon/ico_star-yellow.svg"
+                  : "/icon/ico_star-light-gray.svg"
+              }
+              width={49.5}
+              height={49.5}
+              alt=""
+            />
           </button>
         ))}
       </div>

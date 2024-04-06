@@ -5,7 +5,6 @@ import "react-responsive-carousel/lib/styles/carousel.min.css";
 
 import Image from "next/image";
 import IcoCategory from "./IcoCategory";
-import SwitchCase from "./SwitchCase";
 
 interface PopoupCarousel {
   type: string;
@@ -31,8 +30,8 @@ export default function PopupCarousel({
           showThumbs={false}
         >
           {images?.map(({ imgSrc }, index) => (
-            <div className="h-[220px] object-cover" key={index}>
-              <img src={imgSrc || ""} alt="" />
+            <div className="h-[220px] w-full" key={index}>
+              <Image fill src={imgSrc || ""} alt="" className="object-cover" />
             </div>
           ))}
         </Carousel>
@@ -46,31 +45,18 @@ export default function PopupCarousel({
       >
         <h3 className="text-ellipsis-2 mb-px text-h3 font-bold">{title}</h3>
         <p className="flex items-center truncate text-h5">
-          <SwitchCase
-            tests={[
-              {
-                test: type === "character",
-                component: (
-                  <Image
-                    src="/icon/ico_location--blue.svg"
-                    className="mr-1"
-                    alt="지역"
-                    width={6}
-                    height={10}
-                  />
-                ),
-              },
-            ]}
-            defaultComponent={
-              <Image
-                src="/icon/ico_location.svg"
-                className="mr-1"
-                alt="지역"
-                width={6}
-                height={10}
-              />
+          <Image
+            src={
+              type === "character"
+                ? "/icon/ico_location--blue.svg"
+                : "/icon/ico_location.svg"
             }
+            className="mr-1"
+            alt="지역"
+            width={6}
+            height={10}
           />
+
           {address}
         </p>
       </div>

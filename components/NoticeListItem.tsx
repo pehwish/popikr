@@ -1,4 +1,5 @@
 import { date } from "@/lib/date";
+import Image from "next/image";
 
 import Link from "next/link";
 
@@ -15,7 +16,10 @@ export default function NoticeListItem({
 }: NoticeListItem) {
   return (
     <Link href={`/notice/${id}`}>
-      <img src={imgSrc} alt="" className="h-[93px] w-full" />
+      <div className="relative h-[93px] w-full">
+        <Image fill src={imgSrc} alt="" className="object-cover" />
+      </div>
+
       <span className="mt-1 text-h6 text-gray">{date(createdAt)}</span>
     </Link>
   );

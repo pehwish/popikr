@@ -27,6 +27,7 @@ export default function CalendarPage() {
             }
             address={"누디트 성수점 (서울 성동구 아차산로 6)"}
             isShort
+            last={"music"}
           />
         </div>
       </div>

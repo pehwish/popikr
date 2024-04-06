@@ -27,6 +27,7 @@ export default function ReviewItem({ rating, review, createdAt }: ReviewItem) {
               width={11.98}
               height={13.98}
               alt=""
+              key={i}
             />
           ))}
         </div>

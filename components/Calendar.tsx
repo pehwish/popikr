@@ -117,7 +117,7 @@ export default function Calendar() {
 
   useEffect(() => {
     getAllDays();
-  }, [now]);
+  }, [now, getAllDays]);
 
   const renderCells = () => {
     const rows: ReactNode[] = [];

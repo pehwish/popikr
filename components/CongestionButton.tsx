@@ -71,7 +71,7 @@ export default function CongestionButton() {
     } else {
       /* 위치정보 사용 불가능 */
     }
-  }, [isActive]);
+  }, [isActive, geoSuccess]);
 
   return (
     <div className="mt-[30px] text-center">

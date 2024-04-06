@@ -1,6 +1,7 @@
 "use client";
 
 import { cn } from "@/lib/utils";
+import Image from "next/image";
 import { Dispatch, SetStateAction } from "react";
 import Maybe from "./Maybe";
 import RoundBtn from "./RoundBtn";
@@ -73,7 +74,12 @@ export default function Popup({
             onClick={handleClickBack}
             className="absolute right-[22px] top-[13px]"
           >
-            <img src="/icon/ico_popup_exit.svg" alt="" />
+            <Image
+              width={19}
+              height={18}
+              src="/icon/ico_popup_exit.svg"
+              alt=""
+            />
           </button>
         </Maybe>
       </div>
