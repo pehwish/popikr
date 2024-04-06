@@ -23,14 +23,25 @@ export default function PopupItem({
 }: IPopupItem) {
   const [dDay, setDday] = useState(0);
 
-  const colorVariants = {
-    food: "bg-food text-white",
-    movie: "bg-movie text-white",
-    character: "bg-character text-living",
-    fashion: "bg-fashion text-white",
-    music: "bg-music text-white",
-    living: "bg-living text-white",
-    etc: "bg-etc text-white",
+  const colorVariants = (category: string) => {
+    switch (category) {
+      case "food":
+        return "bg-food text-white";
+      case "movie":
+        return "bg-movie text-white";
+      case "character":
+        return "bg-character text-living";
+      case "fashion":
+        return "bg-fashion text-white";
+      case "music":
+        return "bg-music text-white";
+      case "living":
+        return "bg-living text-white";
+      case "etc":
+        return "bg-etc text-white";
+      default:
+        return "";
+    }
   };
 
   useEffect(() => {
@@ -56,7 +67,7 @@ export default function PopupItem({
                 <span
                   className={cn(
                     "popup-item__opening absolute bottom-3 left-2 flex h-4 w-[64px] items-center justify-center rounded-lg text-[10px] text-h6",
-                    colorVariants[last],
+                    colorVariants(last),
                   )}
                 >
                   OPEN D-{dDay}
@@ -64,7 +75,7 @@ export default function PopupItem({
               )}
             </div>
           </Maybe>
-          <figcaption className={cn("flex p-2.5", colorVariants[last])}>
+          <figcaption className={cn("flex p-2.5", colorVariants(last))}>
             <div className="flex w-14 flex-col border-r py-[5px] text-center text-h4 font-bold">
               <span>{date(startDt, "MM.DD")}</span>
               <span>|</span>

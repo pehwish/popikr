@@ -1,3 +1,5 @@
+import { cn } from "@/lib/utils";
+import { CongestionType } from "@/model";
 import CongestionButton from "./CongestionButton";
 import PopupCarousel from "./PopupCarousel";
 
@@ -6,6 +8,7 @@ interface PopupDetailInfo {
   title: string;
   type: string;
   address: string;
+  congestionType: string;
 }
 
 export default function PopupDetailInfo({
@@ -13,7 +16,32 @@ export default function PopupDetailInfo({
   title,
   type,
   address,
+  congestionType,
 }: PopupDetailInfo) {
+  const congestion = CongestionType.find(
+    (item) => item.type === congestionType,
+  );
+  const colorVariants = (category: string) => {
+    switch (category) {
+      case "food":
+        return "bg-food text-white";
+      case "movie":
+        return "bg-movie text-white";
+      case "character":
+        return "bg-character text-living";
+      case "fashion":
+        return "bg-fashion text-white";
+      case "music":
+        return "bg-music text-white";
+      case "living":
+        return "bg-living text-white";
+      case "etc":
+        return "bg-etc text-white";
+      default:
+        return "";
+    }
+  };
+
   return (
     <div className="mx-23 mt-4 pb-20">
       <PopupCarousel
@@ -25,14 +53,24 @@ export default function PopupDetailInfo({
       <div className="mt-[5px] flex gap-[5px]">
         <div className="flex-1 rounded bg-gray-light pb-3.5 pt-[11px] text-center">
           <h5 className="text-h5 font-bold">현재 혼잡도</h5>
-          <h3 className={`my-[10.5px] text-h2 font-bold text-${type}`}>보통</h3>
-          <p className="text-h5 text-gray">
-            웨이팅 10팀이하, <br />
-            대기시간 30분 이하
-          </p>
+          {congestion && (
+            <>
+              <h3
+                className={cn(
+                  "my-[10.5px] text-h2 font-bold",
+                  congestion.type === "congestion" && "text-food",
+                  congestion.type === "normal" && "text-fashion",
+                  congestion.type === "relaxed" && "text-living",
+                )}
+              >
+                {congestion.text}
+              </h3>
+              <p className="text-h5 text-gray">{congestion.desc}</p>
+            </>
+          )}
         </div>
         <dl
-          className={`flex flex-1 rounded py-[11px] bg-${type} ${type === "character" ? "text-living" : "text-white"}`}
+          className={cn(`flex flex-1 rounded py-[11px]`, colorVariants(type))}
         >
           <div className="flex flex-1 flex-col text-center">
             <dt className="mb-3 text-h5 font-bold">기간</dt>

@@ -50,6 +50,7 @@ export default function Datail() {
           images={dummyImages}
           title="젠틀고등학교: 젠틀몬스터 팝업스토어 젠틀고등학교: 젠틀몬스터 팝업스토어 젠틀고등학교: 젠틀몬스터 팝업스토어"
           type="movie"
+          congestionType="normal"
           address="누디트 성수2호점 (서울 성동구 아차산로 6동"
         />
       );
