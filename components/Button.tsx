@@ -1,6 +1,6 @@
 "use client";
 
-import clsx from "clsx";
+import { cn } from "@/lib/utils";
 
 interface Button {
   text: string;
@@ -22,7 +22,7 @@ export default function Button({
   };
   return (
     <button
-      className={clsx(
+      className={cn(
         "btn transition-all",
         isActive
           ? `font-bold ${!isCate ? "border-living text-living" : `text-${value} border-${value}`}`

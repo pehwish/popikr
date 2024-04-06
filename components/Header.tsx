@@ -1,8 +1,8 @@
 "use client";
 
 import share from "@/lib/share";
+import { cn } from "@/lib/utils";
 import { Action, HeaderType } from "@/model";
-import clsx from "clsx";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
@@ -87,7 +87,7 @@ export default function Header({
 
       <Maybe test={!!title}>
         <h1
-          className={clsx(
+          className={cn(
             "header__title mr-auto text-h3 font-bold",
             type === "filter" && "mx-auto",
           )}

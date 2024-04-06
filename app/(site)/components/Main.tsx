@@ -2,14 +2,14 @@
 
 import Tab from "@/components/Tab";
 import { faker } from "@/lib/faker";
+import { cn } from "@/lib/utils";
 import IPopupItem from "@/model/popup";
-import clsx from "clsx";
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import NoticeItem from "./NoticeItem";
-import PopupItem from "./PopupItem";
-import SwitchCase from "./SwitchCase";
+import NoticeItem from "../../../components/NoticeItem";
+import PopupItem from "../../../components/PopupItem";
+import SwitchCase from "../../../components/SwitchCase";
 
 const TabData = [
   {
@@ -74,7 +74,7 @@ export default function Main() {
       <Tab tabs={TabData} activeIndex={activeIndex} onClick={handleClick}>
         <Link
           href="/filter"
-          className={clsx(
+          className={cn(
             "flex items-center",
             filters.length ? "text-living" : "text-gray",
           )}

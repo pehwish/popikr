@@ -1,6 +1,6 @@
 "use client";
 
-import clsx from "clsx";
+import { cn } from "@/lib/utils";
 
 interface FixedButton {
   text: string;
@@ -23,7 +23,7 @@ export default function FixedButton({
       <button
         onClick={handleClick}
         disabled={isDisabled}
-        className={clsx(
+        className={cn(
           "flex h-12 w-full items-center justify-center rounded text-h3 font-bold",
           {
             "bg-gray-light text-gray": isDisabled,

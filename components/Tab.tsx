@@ -1,6 +1,6 @@
 "use client";
 
-import clsx from "clsx";
+import { cn } from "@/lib/utils";
 import { ReactNode } from "react";
 
 type Tab = {
@@ -26,7 +26,7 @@ export default function Tab({
       <div className="tab space-x-15 ">
         {tabs?.map(({ key, value }, index) => (
           <button
-            className={clsx(
+            className={cn(
               "tab__item relative mb-[-1px] inline-flex items-center pb-1.5 text-h2 transition-all",
               { "font-bold": index === activeIndex },
             )}
@@ -36,7 +36,7 @@ export default function Tab({
             {value}
 
             <span
-              className={clsx(
+              className={cn(
                 "absolute bottom-[.5px] left-[50%] inline-block h-[2px] origin-center translate-x-[-50%] bg-etc transition-all",
                 index === activeIndex ? "w-full" : "w-0",
               )}

@@ -9,7 +9,7 @@ import RoundBtn from "./RoundBtn";
 import SwitchCase from "./SwitchCase";
 import Toast from "./Toast";
 
-import clsx from "clsx";
+import { cn } from "@/lib/utils";
 
 export default function CongestionButton() {
   const [isActive, setIsActive] = useState<string>("");
@@ -84,7 +84,7 @@ export default function CongestionButton() {
           <button
             key={type}
             onClick={() => handleClick(type)}
-            className={clsx(
+            className={cn(
               `congestion-btn flex flex-1 flex-col items-center rounded border-2 border-gray py-3 transition-all`,
               isActive === type
                 ? `border-${color} bg-${color} text-white`

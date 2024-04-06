@@ -1,6 +1,6 @@
 "use client";
 
-import clsx from "clsx";
+import { cn } from "@/lib/utils";
 import { Dispatch, SetStateAction } from "react";
 import Maybe from "./Maybe";
 import RoundBtn from "./RoundBtn";
@@ -40,9 +40,9 @@ export default function Popup({
       className="fixed inset-0 left-[50%] z-10 flex w-full max-w-screen-sm translate-x-[-50%] items-end bg-etc/[.7]"
       onClick={handleClickBack}
     >
-      <div className="animate-a relative w-full rounded-t bg-white px-23 pb-[32px] pt-[45px] text-center">
+      <div className="relative w-full animate-a rounded-t bg-white px-23 pb-[32px] pt-[45px] text-center">
         <h3
-          className={clsx(
+          className={cn(
             "font-bold",
             size === "default" ? "mb-[40px] text-h3" : "mb-[18px] text-h2",
           )}
@@ -51,7 +51,7 @@ export default function Popup({
         </h3>
         <Maybe test={Boolean(desc)}>
           <p
-            className={clsx(
+            className={cn(
               "whitespace-break-spaces",
               !!caution ? "mb-[38px]" : "mb-14",
               size === "default" ? "text-h4" : "text-h2",

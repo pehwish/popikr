@@ -1,5 +1,5 @@
 "use client";
-import clsx from "clsx";
+import { cn } from "@/lib/utils";
 
 interface RoundBtn {
   text: string;
@@ -18,7 +18,7 @@ export default function RoundBtn({
   return (
     <button
       onClick={handleClick}
-      className={clsx("btn-rounded", isDisabled ? "bg-gray" : "bg-living")}
+      className={cn("btn-rounded", isDisabled ? "bg-gray" : "bg-living")}
     >
       {text}
     </button>
